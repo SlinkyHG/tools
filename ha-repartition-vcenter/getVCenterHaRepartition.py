@@ -143,12 +143,12 @@ class Pile:
         self.index = 0
 
     def pop(self):
-        if self.index == len(self.list):
+        returned = self.list[self.index]
+        if self.index == len(self.list)-1:
             self.index = 0
-            return self.list[self.index]
         else:
             self.index+=1
-            return self.list[self.index-1]
+        return returned
 
     def append(self, el):
         self.list.append(el)
