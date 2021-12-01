@@ -1,0 +1,5 @@
+pyVmomi
+argparse
+humanize
+pyVim
+pyVmomi
