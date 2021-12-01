@@ -1,4 +1,7 @@
 #!/usr/bin/python
+
+# Based on nagios plugin : https://github.com/defaultUser0816/nagios-plugins/blob/master/check_esxi_resources.py
+
 import pyVmomi
 import argparse
 import atexit
