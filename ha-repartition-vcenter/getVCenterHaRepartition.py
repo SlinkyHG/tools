@@ -119,7 +119,11 @@ class VCenter:
                     #UpTime
                     uptime = stats.uptime
                     uptimeDays = int(uptime / 60 / 60 / 24)
-                    if freeMemoryPercentage > LIMIT_HOSTS_FREE_RAM and int(100 - cpuUsageMhzPercentage) > LIMIT_HOSTS_FREE_RAM:
+
+                    if freeMemoryPercentage > LIMIT_HOSTS_FREE_RAM and \
+                        int(100 - cpuUsageMhzPercentage) > LIMIT_HOSTS_FREE_RAM and \
+                        host.summary.runtime.inMaintenanceMode == False:
+
                         self.hosts.append({
                             'name': host.name ,
                             'ram': freeMemoryPercentage,
