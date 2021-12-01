@@ -92,7 +92,7 @@ class VCenter:
                             round((capacity / MBFACTOR) / 1000, 0), 
                             round((freeSpace / MBFACTOR) / 1000, 0))
                     })
-        self.datastores = Pile(sorted(self.datastores, key=itemgetter('freeSpace')))
+        self.datastores = Pile(sorted(self.datastores, key=itemgetter('freeSpace'), reverse=True))
         return self
 
     def fetchHostList(self, ignoreList=[], regex="."):
@@ -129,7 +129,7 @@ class VCenter:
                             'ramSum' : "%sGB ram capacity,  %sGB ram usage"%(round(memoryCapacityInMB/1000, 0), round(memoryUsage/1000, 0)),
                             'uptime' : uptimeDays
                         })
-        self.hosts = Pile(sorted(self.hosts, key=itemgetter('ram')))
+        self.hosts = Pile(sorted(self.hosts, key=itemgetter('ram'),  reverse=True))
 
         return self
 
